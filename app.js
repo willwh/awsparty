@@ -42,7 +42,7 @@ app.get('/', routes.index);
 app.get('/instances', function(req, res) {
   console.log('/instances');
   ec2.call('DescribeInstances', {}, function(err, result) {
-    res.render('instances', {title: 'Instances', id: req.param("dnsName")});
+    res.render('instances', {title: 'Instances', instances: JSON.stringify(result)});
   });
 });
 
