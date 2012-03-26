@@ -39,9 +39,10 @@ app.get('/', routes.index);
 
 // Dirty route as a test
 
+
 app.get('/instances', function(req, res) {
   ec2.call('DescribeInstances', {}, function(err, result) {
-    res.render('instances', {title: 'Instances', instances: JSON.stringify(result)});
+	res.render('instances', {title: 'Instances', instances: result, whole: JSON.stringify(result)});
   });
 });
 
